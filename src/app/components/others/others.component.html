@@ -1,0 +1,10 @@
+<section class="container">
+    <h3>Directivas</h3>
+    <h5 highligth>Valor por defecto</h5>
+    <h5 highligth="yellow">Valor con color</h5>
+    <input [(ngModel)]="color" [highligth]="color">
+    <h3>Pipes</h3>
+    <p>{{'my text pipe' | reverse}}</p>
+    <input [(ngModel)]="text">
+    <p>{{text | reverse}}</p>
+</section>

@@ -21,14 +21,14 @@ export class ProductsService {
     return this.http.get<Product[]>(`${this.apiUrl}/products`)
   }
 
-  getByCategory(categoryId: string, limit?: number, offset?: number){
-    let params = new HttpParams();
-    if (limit && offset != null) {
-      params = params.set('limit', limit);
-      params = params.set('offset', offset);
-    }
-    return this.http.get<Product[]>(`${this.apiUrl}/categories/${categoryId}/products`, { params })
-  }
+  // getByCategory(categoryId: string, limit?: number, offset?: number){
+  //   let params = new HttpParams();
+  //   if (limit && offset != null) {
+  //     params = params.set('limit', limit);
+  //     params = params.set('offset', offset);
+  //   }
+  //   return this.http.get<Product[]>(`${this.apiUrl}/categories/${categoryId}/products`, { params })
+  // }
 
   getAll(limit?: number, offset?: number): Observable<Product[]> {
     let params = new HttpParams();
@@ -48,12 +48,12 @@ export class ProductsService {
     );
   }
 
-  fetchReadAndUpdate(id: string, dto: UpdateProductDTO) {
-    return zip(
-      this.getOne(id),
-      this.update(id, dto)
-    );
-  }
+  // fetchReadAndUpdate(id: string, dto: UpdateProductDTO) {
+  //   return zip(
+  //     this.getOne(id),
+  //     this.update(id, dto)
+  //   );
+  // }
 
   getOne(id: string) {
     return this.http.get<Product>(`${this.apiUrl}/products/${id}`)

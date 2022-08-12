@@ -25,6 +25,7 @@ describe('MasterService', () => {
   })
 
   it('should be created', () => {
+    // Assert
     expect(masterService).toBeTruthy();
   });
 
@@ -48,17 +49,22 @@ describe('MasterService', () => {
     // });
 
     it('#Should call fuction getValue from ValueService when call function getValue', (doneFn) => { //<----- recomendable (se utiliza en BCP)
+      // Act
       masterService.getValue();
-
+      
+      // Assert
       expect(stubValueService.getValue).toHaveBeenCalled();
       doneFn();
     });
 
     it('#Should return "Fake Value with jasmine.createSpyObj" from ValueService when call function getValue', (doneFn) => { //<----- recomendable (se utiliza en BCP)
+      // Arrange
       stubValueService.getValue.and.returnValue('Fake Value with jasmine.createSpyObj');
 
+      // Act
       masterService.getValue();
-      
+
+      // Assert
       expect(masterService.getValue()).toBe('Fake Value with jasmine.createSpyObj');
       doneFn();
     });

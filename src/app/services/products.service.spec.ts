@@ -46,6 +46,7 @@ describe('ProductsService', () => {
 
   describe('when initialize', () => {
     it('#Should be created when initialize', () => {
+      // Assert
       expect(service).toBeTruthy();
     });
   });

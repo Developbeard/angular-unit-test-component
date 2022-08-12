@@ -23,13 +23,13 @@ export class AuthService {
   ) {
   }
 
-  getCurrentUser() {
-    const token = this.tokenService.getToken();
-    if (token) {
-      this.getProfile()
-      .subscribe()
-    }
-  }
+  // getCurrentUser() {
+  //   const token = this.tokenService.getToken();
+  //   if (token) {
+  //     this.getProfile()
+  //     .subscribe()
+  //   }
+  // }
 
   login(email: string, password: string) {
     return this.http.post<Auth>(`${this.apiUrl}/login`, {email, password})
@@ -38,22 +38,22 @@ export class AuthService {
     );
   }
 
-  getProfile() {
-    return this.http.get<User>(`${this.apiUrl}/profile`)
-    .pipe(
-      tap(user => this.user.next(user))
-    );
-  }
+  // getProfile() {
+  //   return this.http.get<User>(`${this.apiUrl}/profile`)
+  //   .pipe(
+  //     tap(user => this.user.next(user))
+  //   );
+  // }
 
-  loginAndGet(email: string, password: string) {
-    return this.login(email, password)
-    .pipe(
-      switchMap(() => this.getProfile()),
-    )
-  }
+  // loginAndGet(email: string, password: string) {
+  //   return this.login(email, password)
+  //   .pipe(
+  //     switchMap(() => this.getProfile()),
+  //   )
+  // }
 
-  logout() {
-    this.tokenService.removeToken();
-    this.user.next(null);
-  }
+  // logout() {
+  //   this.tokenService.removeToken();
+  //   this.user.next(null);
+  // }
 }
